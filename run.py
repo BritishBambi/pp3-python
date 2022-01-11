@@ -214,7 +214,9 @@ def choice_3():
                 print("He attacks you!")
                 if baseball_bat.get("equipped") is True:
                     print(f"Luckily, you use the {bat} to defend yourself")
+                    time.sleep(2)
                     baseball_bat.update({"durability": 1})
+                    shop()
                     break
                 elif baseball_bat.get("equipped") is False:
                     print("You do not have a weapon to defend yourself!")
@@ -267,11 +269,21 @@ def shop():
     time.sleep(2)
     print("By using your wits or your strength you reached the end!")
     time.sleep(2)
-    print("You find multiple tins of beans to last you for a while")
+    print("You find multiple tins of beans to last you for a while.")
     time.sleep(2)
     if baseball_bat.get("equipped") is True:
-        print("Since you have cleared out the zombies the area is safe")
+        print("Since you have cleared out the zombies the area is safe.")
         time.sleep(2)
+        if baseball_bat.get("durability") == 0:
+            print(f"That trusty {bat} got you all this way")
+            time.sleep(2)
+            print("What a shame it has been destroyed.")
+            time.sleep(2)
+        elif baseball_bat.get("durability") > 0:
+            print(f"You were able to keep your trusty {bat} intact.")
+            time.sleep(2)
+            print("That'll be useful for the future.")
+            time.sleep(2)
         print("You are able to stroll back home in safety!")
         time.sleep(2)
         print("You win!!! Enjoy the beans!")
