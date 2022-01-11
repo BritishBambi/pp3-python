@@ -1,13 +1,17 @@
 import time
 
+
 # Item Dictionaries
 baseball_bat = {
     "name": "Baseball Bat",
-    "equipped": False
+    "equipped": False,
+    "durability": "2"
 }
+
 
 # Global Variables
 bat = baseball_bat.get("name")
+
 
 def game_intro():
     """
@@ -19,7 +23,8 @@ def game_intro():
     time.sleep(2)
     print("It's time to face the zombie horde!\n")
     time.sleep(2)
-    game_start()
+    choice_1()
+
 
 def game_start():
     """
@@ -27,14 +32,13 @@ def game_start():
     and then asks them if they want to play via
     a story question.
     """
-    
     print("It has been 5 years since they took over the earth..")
     time.sleep(2)
     print("You have been surviving by any means necessary")
     time.sleep(2)
     print("To survive you need food, and must find some before you starve")
     time.sleep(2)
-    start_game = input("Do you have what it takes to start your journey? yes/no:\n")
+    start_game = input("Do you have what it takes to start? yes/no:\n")
     if start_game == "yes":
         print("That's the spirit!\n")
         time.sleep(2)
@@ -45,6 +49,7 @@ def game_start():
         print("GAME OVER")
         time.sleep(2)
         play_again()
+
 
 def choice_1():
     """
@@ -69,19 +74,53 @@ def choice_1():
         time.sleep(2)
         choice_2()
 
+
 def choice_2():
-    print("Choice 2")  
+    print("On the way to the shop, you encounter a lone zombie..")
+    time.sleep(2)
+    print("It has yellow eyes and a decaying body..")
+    time.sleep(2)
+    print("Most importantly, it stands in your way..")
+    time.sleep(2)
+    attack = input("Do you want to attack the zombie? yes/no:\n")
+
+    if attack == "yes":
+        print("You decide to attack the zombie!")
+        time.sleep(2)
+        if baseball_bat.get("equipped") is True:
+            print("You easily knock the zombie head clean off!")
+            time.sleep(2)
+            print(f"However the {bat} is looking weaker..")
+            baseball_bat.update({"durability": "1"})
+        elif baseball_bat.get("equipped") is False:
+            print("You try to attack with your fists!")
+            time.sleep(2)
+            print("This was not the best idea...")
+            time.sleep(2)
+            print("The Zombie overpowers you with ease as you become dinner")
+            time.sleep(2)
+            print("GAME OVER")
+            play_again()
+    elif attack == "no":
+        print("You try to find another way around")
+        time.sleep(2)
+        print("Unfortunatly, you ran into a horde")
+        time.sleep(2)
+        print("You become overwhelmed and attacked by over 10 zombies")
+        time.sleep(2)
+        print("GAME OVER")
+        play_again()
 
 
 def play_again():
     """
     Will allow the game to be ran again when and end condition is met"
     """
-    play_again = input("Would you like to play again? yes/no:\n")
-    if play_again == "yes":
+    user_play_again = input("Would you like to play again? yes/no:\n")
+    if user_play_again == "yes":
         game_intro()
-    elif play_again == "no":
+    elif user_play_again == "no":
         print("That's unfortunate, see you next time!")
-        
+
 
 game_intro()
