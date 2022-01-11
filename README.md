@@ -23,8 +23,11 @@ Whenever the user reaches and end condition the game will run the play_again fun
 ## Technologies
 
 Python
+
 Github
+
 Gitpod
+
 Python Time module
 
 ## Deployment

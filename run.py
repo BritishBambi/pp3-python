@@ -5,12 +5,18 @@ import time
 baseball_bat = {
     "name": "Baseball Bat",
     "equipped": False,
-    "durability": "2"
+    "durability": 3
+}
+
+ghillie_suit = {
+    "name": "Ghillie Suit",
+    "equipped:": False
 }
 
 
 # Global Variables
 bat = baseball_bat.get("name")
+ghillie = ghillie_suit.get("name")
 
 
 def game_intro():
@@ -73,6 +79,7 @@ def choice_1():
         equip_weapon = input("Do you want to bring a weapon? yes/no:\n")
         if equip_weapon == "yes":
             baseball_bat.update({"equipped": True})
+            baseball_bat.update({"durability": 3})
             print(f"You have taken your trusty {bat} with you!")
             time.sleep(2)
             choice_2()
@@ -104,7 +111,10 @@ def choice_2():
                 print("You easily knock the zombie head clean off!")
                 time.sleep(2)
                 print(f"However the {bat} is looking weaker..")
-                baseball_bat.update({"durability": "1"})
+                baseball_bat.update({"durability": 2})
+                print("Defeating the zombie has cleared a path to the shop")
+                time.sleep(2)
+                choice_3()
                 break
             elif baseball_bat.get("equipped") is False:
                 print("You try to attack with your fists!")
@@ -119,16 +129,140 @@ def choice_2():
         elif attack == "no":
             print("You try to find another way around")
             time.sleep(2)
-            print("Unfortunatly, you ran into a horde")
-            time.sleep(2)
-            print("You become overwhelmed and attacked by over 10 zombies")
-            time.sleep(2)
-            print("GAME OVER")
-            play_again()
+            branch_1()
             break
         else:
             print("Invalid input, please type yes or no")
             continue
+
+
+def branch_1():
+    print("You find some neighbouring buildings that offer a new route.")
+    time.sleep(2)
+    print("In the building you find a few ways out to the shop")
+    time.sleep(2)
+    print("You see a window to the street...")
+    time.sleep(2)
+    print("...A corridor with growling coming from it..")
+    time.sleep(2)
+    print("...and a living room with some cabinets")
+    while True:
+        building = input("Which way will you go? window/room/corridor?\n")
+        if building == "window":
+            print("You go through the window and towards the shop\n")
+            choice_3()
+            break
+        elif building == "corridor":
+            print("You move towards the growling..\n")
+            time.sleep(2)
+            print("As expected you are jumped by multiple zombies.")
+            time.sleep(2)
+            print("You are overwhelmed and eaten alive!")
+            time.sleep(2)
+            print("GAME OVER")
+            play_again()
+            break
+        elif building == "room":
+            print("You check the room..\n")
+            time.sleep(2)
+            print(f"In the room you find a {ghillie} for sneaking around!")
+            time.sleep(2)
+            print("This will make it easier to stealth")
+            ghillie_suit.update({"equipped": True})
+            time.sleep(2)
+            print("Unfortunatly a zombie followed you in to the room!")
+            if baseball_bat.get("equipped") is True:
+                time.sleep(2)
+                print(f"Since you are carrying a {bat} and {ghillie}..")
+                time.sleep(2)
+                print("..you are Over-encumbered and zombie overpowers you")
+                time.sleep(2)
+                print("GAME OVER")
+                play_again()
+            elif baseball_bat.get("equipped") is False:
+                print("With no weapon to slow you down you run for it")
+                time.sleep(2)
+            print("You then escape using a fire exit through the room")
+            choice_3()
+            break
+        else:
+            print("Invalid input, please type yes or no")
+            continue
+
+
+def choice_3():
+    print("You move through the streets, being careful as you do.\n")
+    time.sleep(2)
+    print("You find the shop however, 2 zombies wonder outside")
+    time.sleep(2)
+    while True:
+        shop_aproach = input("How do you approach? stealth/attack/run\n")
+        if shop_aproach == "stealth":
+            print("You opt for the quiet approach..")
+            time.sleep(2)
+            print("This is a smart idea.")
+            time.sleep(2)
+            if ghillie_suit.get("equipped") is True:
+                print(f"Using the {ghillie} you sneak by both zombies!")
+                break
+            elif ghillie_suit.get("equipped") is False:
+                print("You are able to sneak by one of the zombies.")
+                time.sleep(2)
+                print("However, one of them spots you as you reach the door..")
+                time.sleep(2)
+                print("He attacks you!")
+                if baseball_bat.get("equipped") is True:
+                    print(f"Luckily, you use the {bat} to defend yourself")
+                    baseball_bat.update({"durability": 1})
+                    break
+                elif baseball_bat.get("equipped") is False:
+                    print("You do not have a weapon to defend yourself!")
+                    time.sleep(2)
+                    print("The zombie overpowers you and eats you")
+                    time.sleep(2)
+                    print("GAME OVER")
+                    play_again()
+                    break
+        elif shop_aproach == "run":
+            print("You run away from the shop")
+            time.sleep(2)
+            print("With no food to survive, you starve to death in days.")
+            time.sleep(2)
+            print("GAME OVER")
+            play_again()
+            break
+        elif shop_aproach == "attack":
+            time.sleep(2)
+            print("This is a risky move, I hope you are prepared!")
+            time.sleep(2)
+            if baseball_bat.get("equipped") is True:
+                print(f"With the {bat} at the ready you make an attack!")
+                time.sleep(2)
+                print("You grunt loudly as you bash both the zombies in!")
+                time.sleep(2)
+                print("You have succesfully taken down the zombies!")
+                time.sleep(2)
+                print(f"Your trusty {bat} has broken but got you this far.")
+                time.sleep(2)
+                shop()
+                break
+            elif baseball_bat.get("equipped") is False:
+                print("You try to attack with your fists!")
+                time.sleep(2)
+                print("This was not the best idea...")
+                time.sleep(2)
+                print("The Zombie overpowers you easily as you become dinner")
+                time.sleep(2)
+                print("GAME OVER")
+                play_again()
+                break
+        else:
+            print("Invalid input, please type yes or no")
+            continue
+
+
+def shop():
+    print("You have made it to the shop!")
 
 
 def play_again():
