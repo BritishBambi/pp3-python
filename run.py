@@ -186,7 +186,7 @@ def branch_1():
             choice_3()
             break
         else:
-            print("Invalid input, please type yes or no")
+            print("Invalid input, please type window/room/corridor")
             continue
 
 
@@ -257,7 +257,7 @@ def choice_3():
                 play_again()
                 break
         else:
-            print("Invalid input, please type yes or no")
+            print("Invalid input, please type stealth/attack/run")
             continue
 
 
