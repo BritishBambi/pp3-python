@@ -49,6 +49,7 @@ def game_start():
         if start_game == "yes":
             print("That's the spirit!\n")
             time.sleep(2)
+            ghillie_suit.update({"equipped": False})
             choice_1()
             break
         elif start_game == "no":
@@ -263,6 +264,25 @@ def choice_3():
 
 def shop():
     print("You have made it to the shop!")
+    time.sleep(2)
+    print("By using your wits or your strength you reached the end!")
+    time.sleep(2)
+    print("You find multiple tins of beans to last you for a while")
+    time.sleep(2)
+    if baseball_bat.get("equipped") is True:
+        print("Since you have cleared out the zombies the area is safe")
+        time.sleep(2)
+        print("You are able to stroll back home in safety!")
+        time.sleep(2)
+        print("You win!!! Enjoy the beans!")
+        time.sleep(2)
+        play_again()
+    if baseball_bat.get("equipped") is False:
+        print(f"Using your {ghillie} you are able to sneak back home!")
+        time.sleep(2)
+        print("You win!!! Enjoy the beans!")
+        time.sleep(2)
+        play_again()
 
 
 def play_again():
