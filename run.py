@@ -6,6 +6,9 @@ baseball_bat = {
     "equipped": False
 }
 
+# Global Variables
+bat = baseball_bat.get("name")
+
 def game_intro():
     """
     Will display the game introduction and welcome screen to the user when ran.
@@ -19,6 +22,11 @@ def game_intro():
     game_start()
 
 def game_start():
+    """
+    Presents the user with a small story introduction
+    and then asks them if they want to play via
+    a story question.
+    """
     
     print("It has been 5 years since they took over the earth..")
     time.sleep(2)
@@ -28,15 +36,41 @@ def game_start():
     time.sleep(2)
     start_game = input("Do you have what it takes to start your journey? yes/no:\n")
     if start_game == "yes":
-        print("That's the spirit!")
+        print("That's the spirit!\n")
         time.sleep(2)
         choice_1()
-    elif start_game =="no":
-        print("You do not have what it takes...")
+    elif start_game == "no":
+        print("You do not have what it takes...\n")
         time.sleep(2)
         print("GAME OVER")
         time.sleep(2)
         play_again()
+
+def choice_1():
+    """
+    Presents the user with the first choice of the game.
+    If the user brings the bat it will update the dictonary
+    to refelct equipped as True. This will be used to influence
+    choices later.
+    """
+
+    print("After a survey of the area, you found an abandoned shop nearby..")
+    time.sleep(2)
+    print("This may be a good place to search, or dangerous..")
+    time.sleep(2)
+    equip_weapon = input("Do you want to bring a weapon with you? yes/no:\n")
+    if equip_weapon == "yes":
+        baseball_bat.update({"equipped": True})
+        print(f"You have taken your trusty {bat} with you!")
+        time.sleep(2)
+        choice_2()
+    elif equip_weapon == "no":
+        print("You have decided to not bring a weapon..")
+        time.sleep(2)
+        choice_2()
+
+def choice_2():
+    print("Choice 2")  
 
 
 def play_again():
