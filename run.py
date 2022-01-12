@@ -151,6 +151,7 @@ def branch_1():
         building = input("Which way will you go? window/room/corridor?\n")
         if building == "window":
             print("You go through the window and towards the shop\n")
+            time.sleep(2)
             choice_3()
             break
         elif building == "corridor":
@@ -184,6 +185,7 @@ def branch_1():
                 print("With no weapon to slow you down you run for it")
                 time.sleep(2)
             print("You then escape using a fire exit through the room")
+            time.sleep(2)
             choice_3()
             break
         else:
