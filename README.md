@@ -1,5 +1,7 @@
 # Scavenge
 
+![Gif of the game intro](screenshots/game-intro.gif "Game Intro")
+
 Scavenge is a text adventure game. The player will be brought through a zombie survival story, where they must scavange for food to survive. Along the way they must use items and their intelegence to navigate safley through the dangers of the world they live in.
 
 The game story is inspired by other zombie games that depend on the use of resources and weapons in order to survive. While younger players may not fit the target audience, older players may love the call back to orignal text games.
@@ -51,6 +53,18 @@ Python Time module
 LucidChart
 
 ## Deployment
+
+App was Deployed to Heroku using the following steps.
+
+1. Go to [Heroku](https://dashboard.heroku.com/apps) and log in.
+2. Select on Create new App
+3. Give App a name such as "scavenge-textadventure"
+4. Go to the settings and locate the Configure vars section
+5. Add a port with the name PORT and the value of 8000
+6. Locate the buildpacks section and add the Python and nodejs buildpacks in that order
+7. Scroll up and locate the Deploy tab where settings was found.
+8. Add Github as the deployement method and find the Git page for the project.
+9. Select the branch and press Deploy Branch 
 
 ## Credits
 
