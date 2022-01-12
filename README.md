@@ -1,6 +1,6 @@
-# Hunted
+# Scavenge
 
-Hunted is a text adventure game. The player will be brought through a zombie survival story, where they must scavange for food to survive. Along the way they must use items and their intelegence to navigate safley through the dangers of the world they live in.
+Scavenge is a text adventure game. The player will be brought through a zombie survival story, where they must scavange for food to survive. Along the way they must use items and their intelegence to navigate safley through the dangers of the world they live in.
 
 The game story is inspired by other zombie games that depend on the use of resources and weapons in order to survive. While younger players may not fit the target audience, older players may love the call back to orignal text games.
 
@@ -14,11 +14,29 @@ When the game is first loaded the user will be presented with a short introducti
 
 ## Features
 
-## Testing
+### Branching Story Line
+
+The game features a branching story line that can bring the user to different locations and endings depending on the users choice. To interact with these choices the user simply has to type in a single word, the selection of which is shown in the question. The game encourages the user to choose a playstyle and stick to it. The ending can be reached either by following the fully stealth (no weapon) branch or the weapon (full attack) branch. If the user tries to mix around too much they could end up with a gamer over state. However there is a secret ending which involves use of both playstyles and keeps the player weapon intact. The game ecourages replaying and experimenting with the different options. As there are 7 ways to reach a game over and 3 ways to reach a win state. That is 1 win for each playstyle and the secret mixed ending.
+
+![Screenshot showing multiple options](screenshots/branch.PNG "Game Branches")
+
+### Equipment
+
+Depending on the play style of the user, certain equipment can be utilised for a game win. These items are to encourage a specific play style but to try and take both will get the user a game over eventually. The name is called using a dictionary as well as the equipped state. The game can use this to find out if a user has brought a certain item. Also depending on the user approach the user can bring the bat to the end of the game but they can also end up losing the bat. The durabilty goes down by 1 for each zombie killed. This adds more of a unique story depending on how many zombies the user kills.
+
+### GAME OVER and You win!
+
+The game will announce whenever the user hits a win or loss state. Both states are followed by some short story text to explain the state and then either GAME OVER or You Win! Will appear on screen. This clearly indicates to the user if they have won or lost the game and will then directly follow up with the play again function to get the user back to the beggining of the game.
 
 ### Play Again
 
 Whenever the user reaches and end condition the game will run the play_again function. This will present the user with a yes or no question as to weather or not they want to try again. If yes is typed the user is successfully brought back to the beginning by running the game_intro function. This loops the user back to the beginning of the game. We also make sure to include dictonary updates to make sure the play again does not intefere with the default values of the dictonary. Similarly when the user types no, the game will display a short message and the programn stops as expected. If any other input is detected then the programn will tell the user an invalid input was detected and the question will be asked again.
+
+## Testing
+
+My game was tested using the flow chart bellow as reference
+
+![Screenshot showing the flow chart](screenshots/flow-chart.PNG "Game Flow Chart")
 
 ## Technologies
 
@@ -29,6 +47,8 @@ Github
 Gitpod
 
 Python Time module
+
+LucidChart
 
 ## Deployment
 

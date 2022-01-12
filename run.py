@@ -23,7 +23,7 @@ def game_intro():
     """
     Will display the game introduction and welcome screen to the user when ran.
     """
-    print("Welcome to Hunted")
+    print("Welcome to Scavenge")
     time.sleep(2)
     print("This text based adventure game will test your skills...")
     time.sleep(2)
@@ -128,7 +128,7 @@ def choice_2():
                 play_again()
                 break
         elif attack == "no":
-            print("You try to find another way around")
+            print("You try to find another way around\n")
             time.sleep(2)
             branch_1()
             break
@@ -284,13 +284,13 @@ def shop():
             time.sleep(2)
             print("That'll be useful for the future.")
             time.sleep(2)
-        print("You are able to stroll back home in safety!")
+        print("You are able to stroll back home in safety!\n")
         time.sleep(2)
         print("You win!!! Enjoy the beans!")
         time.sleep(2)
         play_again()
     if baseball_bat.get("equipped") is False:
-        print(f"Using your {ghillie} you are able to sneak back home!")
+        print(f"Using your {ghillie} you are able to sneak back home!\n")
         time.sleep(2)
         print("You win!!! Enjoy the beans!")
         time.sleep(2)
