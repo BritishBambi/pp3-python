@@ -14,6 +14,10 @@ The goal is to retrieve items from an abandonded store and return back to their 
 
 When the game is first loaded the user will be presented with a short introduction to the world of the game. Then they will be asked weather or not they are ready to start the game. This will quickly give the user agency to start or not so they do not have to sit through a long screen each time. The user will be able to go down multiple branches through the game and can make the decision to take items and use them. However the items will have a durability so if they are used too often then they will eventually break and be unusable later in the game. This means the user has to make smart choices when given the option. By utilising these items and choices they will be able to win and make it back to survive.
 
+## Flow Chart
+
+![Screenshot showing the flow chart](screenshots/flow-chart.PNG "Game Flow Chart")
+
 ## Features
 
 ### Branching Story Line
@@ -36,9 +40,7 @@ Whenever the user reaches and end condition the game will run the play_again fun
 
 ## Testing
 
-My game was tested using the flow chart bellow as reference
-
-![Screenshot showing the flow chart](screenshots/flow-chart.PNG "Game Flow Chart")
+My game was tested using the [Flow Chart](##flow-chart) located earlier in the document.
 
 ## Technologies
 
