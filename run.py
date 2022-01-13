@@ -314,16 +314,17 @@ def play_again():
     Will allow the game to be ran again when and end condition is met"
     """
     while True:
-        user_play_again = input("Would you like to play again? yes/no:\n")
-        if user_play_again == "yes":
-            game_intro()
-            break
-        elif user_play_again == "no":
-            print("That's unfortunate, see you next time!")
-            break
+        try:
+            p_again = int(input("Would you like to play again? 1.Yes/2.No:\n"))
+        except ValueError:
+            print("Please type 1 or 2.")
         else:
-            print("Invalid input, please type yes or no")
-            continue
+            if p_again == 1:
+                game_intro()
+                break
+            elif p_again == 2:
+                print("That's unfortunate, see you next time!")
+                break
 
 
 game_intro()

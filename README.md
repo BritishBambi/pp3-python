@@ -32,7 +32,7 @@ Depending on the play style of the user, certain equipment can be utilised for a
 
 ### GAME OVER and You win!
 
-The game will announce whenever the user hits a win or loss state. Both states are followed by some short story text to explain the state and then either GAME OVER or You Win! Will appear on screen. This clearly indicates to the user if they have won or lost the game and will then directly follow up with the play again function to get the user back to the beggining of the game.
+The game will announce whenever the user hits a win or loss state. Both states are followed by some short story text to explain the state and then either GAME OVER or You Win! Will appear on screen. This clearly indicates to the user if they have won or lost the game and will then directly follow up with the play again function to get the user back to the beggining of the game. The text will also change colour further indicate to the user that GAME OVER is the bad ending and You Win is the good ending. 
 
 ### Play Again
 
@@ -54,6 +54,10 @@ Python Time module
 
 LucidChart
 
+Colorama
+
+Gyazo GIF Capture
+
 ## Deployment
 
 App was Deployed to Heroku using the following steps.
@@ -70,8 +74,12 @@ App was Deployed to Heroku using the following steps.
 
 ## Credits
 
+The code and the story for the game was created entirely by myself with learning from the Code Institute Python course material.
+
+## Aknowledgements
+
 Adding delay to code learnt from: https://realpython.com/python-sleep/
 
 Using While loops to allow invalid inputs to return back to choice question from: https://stackoverflow.com/questions/12828771/how-to-go-back-to-first-if-statement-if-no-choices-are-valid
 
-## Aknowledgements
+Using Try/Except in a While loop refined by reading: https://stackoverflow.com/questions/36437631/python-validation-of-an-integer-except-or-except-valueerror
