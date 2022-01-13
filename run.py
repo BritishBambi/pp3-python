@@ -1,4 +1,5 @@
 import time
+from colorama import Fore, Style
 
 
 # Item Dictionaries
@@ -55,7 +56,8 @@ def game_start():
         elif start_game == "no":
             print("You do not have what it takes...\n")
             time.sleep(2)
-            print("GAME OVER")
+            print(Fore.RED + "GAME OVER")
+            print(Style.RESET_ALL)
             time.sleep(2)
             play_again()
             break
@@ -124,7 +126,8 @@ def choice_2():
                 time.sleep(2)
                 print("The Zombie overpowers you easily as you become dinner")
                 time.sleep(2)
-                print("GAME OVER")
+                print(Fore.RED + "GAME OVER")
+                print(Style.RESET_ALL)
                 play_again()
                 break
         elif attack == "no":
@@ -161,7 +164,8 @@ def branch_1():
             time.sleep(2)
             print("You are overwhelmed and eaten alive!")
             time.sleep(2)
-            print("GAME OVER")
+            print(Fore.RED + "GAME OVER")
+            print(Style.RESET_ALL)
             play_again()
             break
         elif building == "room":
@@ -179,7 +183,8 @@ def branch_1():
                 time.sleep(2)
                 print("..you are Over-encumbered and zombie overpowers you")
                 time.sleep(2)
-                print("GAME OVER")
+                print(Fore.RED + "GAME OVER")
+                print(Style.RESET_ALL)
                 play_again()
             elif baseball_bat.get("equipped") is False:
                 print("With no weapon to slow you down you run for it")
@@ -225,7 +230,8 @@ def choice_3():
                     time.sleep(2)
                     print("The zombie overpowers you and eats you")
                     time.sleep(2)
-                    print("GAME OVER")
+                    print(Fore.RED + "GAME OVER")
+                    print(Style.RESET_ALL)
                     play_again()
                     break
         elif shop_aproach == "run":
@@ -233,7 +239,8 @@ def choice_3():
             time.sleep(2)
             print("With no food to survive, you starve to death in days.")
             time.sleep(2)
-            print("GAME OVER")
+            print(Fore.RED + "GAME OVER")
+            print(Style.RESET_ALL)
             play_again()
             break
         elif shop_aproach == "attack":
@@ -258,7 +265,8 @@ def choice_3():
                 time.sleep(2)
                 print("The Zombie overpowers you easily as you become dinner")
                 time.sleep(2)
-                print("GAME OVER")
+                print(Fore.RED + "GAME OVER")
+                print(Style.RESET_ALL)
                 play_again()
                 break
         else:
@@ -267,7 +275,7 @@ def choice_3():
 
 
 def shop():
-    print("You have made it to the shop!")
+    print("You have made it to the shop!\n")
     time.sleep(2)
     print("By using your wits or your strength you reached the end!")
     time.sleep(2)
@@ -288,13 +296,15 @@ def shop():
             time.sleep(2)
         print("You are able to stroll back home in safety!\n")
         time.sleep(2)
-        print("You win!!! Enjoy the beans!")
+        print(Fore.GREEN + "You win!!! Enjoy the beans!")
+        print(Style.RESET_ALL)
         time.sleep(2)
         play_again()
     if baseball_bat.get("equipped") is False:
         print(f"Using your {ghillie} you are able to sneak back home!\n")
         time.sleep(2)
-        print("You win!!! Enjoy the beans!")
+        print(Fore.GREEN + "You win!!! Enjoy the beans!")
+        print(Style.RESET_ALL)
         time.sleep(2)
         play_again()
 

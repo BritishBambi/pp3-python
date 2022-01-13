@@ -64,7 +64,7 @@ App was Deployed to Heroku using the following steps.
 6. Locate the buildpacks section and add the Python and nodejs buildpacks in that order
 7. Scroll up and locate the Deploy tab where settings was found.
 8. Add Github as the deployement method and find the Git page for the project.
-9. Select the branch and press Deploy Branch 
+9. Select the branch and press Deploy Branch
 
 ## Credits
 
