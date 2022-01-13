@@ -40,7 +40,51 @@ Whenever the user reaches and end condition the game will run the play_again fun
 
 ## Testing
 
-My game was tested using the [Flow Chart](##flow-chart) located earlier in the document.
+My game was tested using the [Flow Chart](#flow-chart) located earlier in the document.
+
+### Validation
+
+![Screenshot showing PEP8 code validator](screenshots/code-validation.PNG "PEP8 Code Validator")
+
+### game_intro()
+
+The first part of the game to be tested is the intro that is displayed when the user initially loads in. It is a simple story introduction that is skipped over on a play again to avoid dragging out the user. However when the game runs first, this successfully loads the print statements and uses sleep to add a 2 second pause in between each message. This works as expected and has no bugs.
+
+### game_start()
+
+The game start function is designed the give the user a starting point to where they can exit the program or go to the first choice. All of the print statements at the start all work correctly and have the correct pause time. The user is then correctly asked to input a choice between yes or no. Whatever the user types will then be made lower case straight away. This means that the user can do multiple variations of the word yes, such as caps, lower case, or a mix.
+
+* If the user says Yes then a short message is then displayed correctly. The ghillie suit dictionary is then updated to say its not equipped. This is done here to ensure that if the user pressed play again the default values are returned. The user is then brought to choice 1().
+
+* If the user says No then the GAME OVER message is displayed to indicate the end of the game. The text is shown in Red to reflect this as expected. The style reset then ensures that the default text colour is restored for the rest of the console. The play again function is then called to allow the user the choice to exit or play from the start.
+
+* If the user enters an incorrect input such as a word that is not yes or no then a short message will let them know what to fix and call the input field again.
+
+All this function works as intended and there are no bugs to be found.
+
+### play_again()
+
+The play again function is called whenever the game ends. This can either by a game over or a win state. When ran, an input is given to the user and they are asked to enter 1 or 2 to represent playing the game again or exiting the programn.
+
+* If the user types 1(yes) then the game_start is called again, skipping out the initial intro and gets right to the input again.
+
+* If the user types 2(no) then the game has a quick goodbye message and the programn ends.
+
+* If the user types anything that isn't a number then a ValueError is picked up and the user will be told to type 1 or 2. Similarly if any number other than just 1 or 2 is typed then another message will occur and the input will repeat again.
+
+This all works as intended and there are no bugs to be found.
+
+### choice_1()
+
+Choice 1 is where the user is given their first choice that will effect the progression of the game. Depending on if the user choses to bring the weapon or not, they will be locked out of certain win states and have to be careful to not hit game over states. The user is given an input field where they can type yes or no to signify taking the weapon.
+
+* If the user types yes then the baseball bat dictionary will update to say that Equipped is equal to True. This means we can easily find out if the user brought the bat in later choices by checking this value. The durability is also set again to 3. This is in case of the user playing again and maintaining the durability from a previous preview. Updating it now makes sure there are no conflicts. The user is then brought to choice 2.
+
+* If the user types no then the bat equipped state is set to False. Again this is used to check against in later options for the user and allows for an easy lookup to be done. There is no need to update the durability here as it only comes into consideratoin later on if the bat is taken now.
+
+* If the user enters an incorrect input such as a word that is not yes or no then a short message will let them know what to fix and call the input field again.
+
+This all functions correctly and all text pauses execute as planned.
 
 ## Technologies
 

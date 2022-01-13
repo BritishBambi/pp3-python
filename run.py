@@ -47,6 +47,7 @@ def game_start():
     time.sleep(2)
     while True:
         start_game = input("Do you have what it takes to start? yes/no:\n")
+        start_game = start_game.lower()
         if start_game == "yes":
             print("That's the spirit!\n")
             time.sleep(2)
@@ -80,6 +81,7 @@ def choice_1():
     time.sleep(2)
     while True:
         equip_weapon = input("Do you want to bring a weapon? yes/no:\n")
+        equip_weapon = equip_weapon.lower()
         if equip_weapon == "yes":
             baseball_bat.update({"equipped": True})
             baseball_bat.update({"durability": 3})
@@ -99,6 +101,13 @@ def choice_1():
 
 
 def choice_2():
+    """
+    The first choice where options will be taken into account
+    if certain conditions are reached then the user can reach
+    choice 3 or branch 1 from here. This is done using if
+    statements to take the users input and give them the
+    corrosponding route.
+    """
     print("On the way to the shop, you encounter a lone zombie..")
     time.sleep(2)
     print("It has yellow eyes and a decaying body..")
@@ -107,6 +116,7 @@ def choice_2():
     time.sleep(2)
     while True:
         attack = input("Do you want to attack the zombie? yes/no:\n")
+        attack = attack.lower()
         if attack == "yes":
             print("You decide to attack the zombie!")
             time.sleep(2)
@@ -141,6 +151,12 @@ def choice_2():
 
 
 def branch_1():
+    """
+    The alternative route for the player reached only by
+    avoiding the zombie in choice 2. Allows more routes
+    for the player and can give the player equipment
+    depending on their input.
+    """
     print("You find some neighbouring buildings that offer a new route.")
     time.sleep(2)
     print("In the building you find a few ways out to the shop")
@@ -152,6 +168,7 @@ def branch_1():
     print("...and a living room with some cabinets")
     while True:
         building = input("Which way will you go? window/room/corridor?\n")
+        building = building.lower()
         if building == "window":
             print("You go through the window and towards the shop\n")
             time.sleep(2)
@@ -199,12 +216,19 @@ def branch_1():
 
 
 def choice_3():
+    """
+    The finaly choice which will evaluate and check against all the
+    equipment the user has taken so far to determine if they can
+    reach the end of not. Depending on weather the user branched
+    or not they will be able to only succeed on certain inputs.
+    """
     print("You move through the streets, being careful as you do.\n")
     time.sleep(2)
     print("You find the shop however, 2 zombies wonder outside")
     time.sleep(2)
     while True:
         shop_aproach = input("How do you approach? stealth/attack/run\n")
+        shop_aproach = shop_aproach.lower()
         if shop_aproach == "stealth":
             print("You opt for the quiet approach..")
             time.sleep(2)
@@ -275,6 +299,12 @@ def choice_3():
 
 
 def shop():
+    """
+    The final section of the game, certain endings will be achieved
+    depending on the users equipment. This function will check weather the
+    items are equipped or not and then for the bat check the durability to
+    give another ending. A win state will then be reached.
+    """
     print("You have made it to the shop!\n")
     time.sleep(2)
     print("By using your wits or your strength you reached the end!")
@@ -318,13 +348,18 @@ def play_again():
             p_again = int(input("Would you like to play again? 1.Yes/2.No:\n"))
         except ValueError:
             print("Please type 1 or 2.")
+            time.sleep(1)
         else:
             if p_again == 1:
-                game_intro()
+                game_start()
                 break
             elif p_again == 2:
                 print("That's unfortunate, see you next time!")
                 break
+            else:
+                print("Please type only 1 or 2.")
+                time.sleep(1)
+                continue
 
 
 game_intro()
