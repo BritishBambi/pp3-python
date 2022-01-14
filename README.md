@@ -10,9 +10,9 @@ Final deployed version of my game is available [here](https://scavenge-textgame.
 
 ## How to Play
 
-The game is mainly played via a simple Yes or No input from the user. More of the complexity to winning comes from the user's ability to use items and resources to reach the end. The decision weather or not to fight or retreat depending on their inventory.
+The game is mainly played via a simple one word or number input from the user. More of the complexity to winning comes from the user's ability to use items and resources to reach the end. The decision weather or not to fight or retreat depending on their inventory.
 
-The goal is to retrieve items from an abandonded store and return back to their home base. This gives the user a clear goal that stays in their head throughout the story.
+The goal is to retrieve food from an abandonded store and return back to their home base. This gives the user a clear goal that stays in their head throughout the story.
 
 When the game is first loaded the user will be presented with a short introduction to the world of the game. Then they will be asked weather or not they are ready to start the game. This will quickly give the user agency to start or not so they do not have to sit through a long screen each time. The user will be able to go down multiple branches through the game and can make the decision to take items and use them. However the items will have a durability so if they are used too often then they will eventually break and be unusable later in the game. This means the user has to make smart choices when given the option. By utilising these items and choices they will be able to win and make it back to survive.
 
@@ -151,6 +151,8 @@ LucidChart
 Colorama
 
 Gyazo GIF Capture
+
+Heroku
 
 ## Deployment
 
