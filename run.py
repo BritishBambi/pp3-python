@@ -59,11 +59,11 @@ def game_start():
             time.sleep(2)
             print(Fore.RED + "GAME OVER")
             print(Style.RESET_ALL)
-            time.sleep(2)
             play_again()
             break
         else:
             print("Invalid input, please type yes or no")
+            time.sleep(1)
             continue
 
 
@@ -97,6 +97,7 @@ def choice_1():
             break
         else:
             print("Invalid input, please type yes or no")
+            time.sleep(1)
             continue
 
 
@@ -124,7 +125,8 @@ def choice_2():
                 print("You easily knock the zombie head clean off!")
                 time.sleep(2)
                 print(f"However the {bat} is looking weaker..")
-                baseball_bat.update({"durability": 2})
+                time.sleep(2)
+                baseball_bat["durability"] -= 1
                 print("Defeating the zombie has cleared a path to the shop")
                 time.sleep(2)
                 choice_3()
@@ -147,6 +149,7 @@ def choice_2():
             break
         else:
             print("Invalid input, please type yes or no")
+            time.sleep(1)
             continue
 
 
@@ -212,12 +215,13 @@ def branch_1():
             break
         else:
             print("Invalid input, please type window/room/corridor")
+            time.sleep(1)
             continue
 
 
 def choice_3():
     """
-    The finaly choice which will evaluate and check against all the
+    The final choice which will evaluate and check against all the
     equipment the user has taken so far to determine if they can
     reach the end of not. Depending on weather the user branched
     or not they will be able to only succeed on certain inputs.
@@ -246,7 +250,7 @@ def choice_3():
                 if baseball_bat.get("equipped") is True:
                     print(f"Luckily, you use the {bat} to defend yourself")
                     time.sleep(2)
-                    baseball_bat.update({"durability": 1})
+                    baseball_bat["durability"] -= 1
                     shop()
                     break
                 elif baseball_bat.get("equipped") is False:
@@ -277,8 +281,7 @@ def choice_3():
                 print("You grunt loudly as you bash both the zombies in!")
                 time.sleep(2)
                 print("You have succesfully taken down the zombies!")
-                time.sleep(2)
-                print(f"Your trusty {bat} has broken but got you this far.")
+                baseball_bat["durability"] -= 2
                 time.sleep(2)
                 shop()
                 break
@@ -295,6 +298,7 @@ def choice_3():
                 break
         else:
             print("Invalid input, please type stealth/attack/run")
+            time.sleep(1)
             continue
 
 
@@ -312,7 +316,7 @@ def shop():
     print("You find multiple tins of beans to last you for a while.")
     time.sleep(2)
     if baseball_bat.get("equipped") is True:
-        print("Since you have cleared out the zombies the area is safe.")
+        print("Since you have cleared out the way you can make it back safe.")
         time.sleep(2)
         if baseball_bat.get("durability") == 0:
             print(f"That trusty {bat} got you all this way")
@@ -345,20 +349,21 @@ def play_again():
     """
     while True:
         try:
+            time.sleep(1)
             p_again = int(input("Would you like to play again? 1.Yes/2.No:\n"))
         except ValueError:
             print("Please type 1 or 2.")
-            time.sleep(1)
         else:
             if p_again == 1:
+                time.sleep(1)
                 game_start()
                 break
             elif p_again == 2:
+                time.sleep(1)
                 print("That's unfortunate, see you next time!")
                 break
             else:
                 print("Please type only 1 or 2.")
-                time.sleep(1)
                 continue
 
 

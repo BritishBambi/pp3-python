@@ -30,13 +30,19 @@ The game features a branching story line that can bring the user to different lo
 
 Depending on the play style of the user, certain equipment can be utilised for a game win. These items are to encourage a specific play style but to try and take both will get the user a game over eventually. The name is called using a dictionary as well as the equipped state. The game can use this to find out if a user has brought a certain item. Also depending on the user approach the user can bring the bat to the end of the game but they can also end up losing the bat. The durabilty goes down by 1 for each zombie killed. This adds more of a unique story depending on how many zombies the user kills.
 
+![Screenshot showing equipment being equipped](screenshots/equipment.PNG "Game Equipment")
+
 ### GAME OVER and You win!
 
 The game will announce whenever the user hits a win or loss state. Both states are followed by some short story text to explain the state and then either GAME OVER or You Win! Will appear on screen. This clearly indicates to the user if they have won or lost the game and will then directly follow up with the play again function to get the user back to the beggining of the game. The text will also change colour further indicate to the user that GAME OVER is the bad ending and You Win is the good ending. 
 
+![Screenshot showing a game over state](screenshots/game-over.PNG "Game Over")
+
 ### Play Again
 
 Whenever the user reaches and end condition the game will run the play_again function. This will present the user with a yes or no question as to weather or not they want to try again. If yes is typed the user is successfully brought back to the beginning by running the game_intro function. This loops the user back to the beginning of the game. We also make sure to include dictonary updates to make sure the play again does not intefere with the default values of the dictonary. Similarly when the user types no, the game will display a short message and the programn stops as expected. If any other input is detected then the programn will tell the user an invalid input was detected and the question will be asked again.
+
+![Screenshot showing the play again function being called](screenshots/play-again.PNG "Play again feature")
 
 ## Testing
 
@@ -84,7 +90,49 @@ Choice 1 is where the user is given their first choice that will effect the prog
 
 * If the user enters an incorrect input such as a word that is not yes or no then a short message will let them know what to fix and call the input field again.
 
-This all functions correctly and all text pauses execute as planned.
+This all functions correctly and all text pauses execute as planned. All input is also converted to lowercase to ensure a smooth experience.
+
+### choice_2()
+
+Choice 2 is where the user's choice can take them to different locations and allow for unique experiences to each other. When the code is ran the prints explain the scene to the user as expected and then provide an input field for the user. Here they can decide weather or not they want to attack the zombie they have come across. They are provided a yes or no option as excpected. All input is correctly converted to lower case. Already multiple endings to this function are determined by taking the bat or not in choice 1.
+
+* If the user types yes then they will attack the zombie as planned. However the code will run a check to see if they have the bat equipped or not. If they do then the zombie is defeated and they are brought to choice_3 as expected. However doing this with no bat results in a game over state which runs as expected, providing the user with the play again option. If the user attacks the code also succesfully decreases the durability by 1.
+
+* If the user types no then they will be re-directed to branch_1 and the equip state of the bat does not come into play at this point. This means a simple print and function call happens. This all runs as expected.
+
+* If the user enters an incorrect input such as a word that is not yes or no then a short message will let them know what to fix and call the input field again.
+
+Everything in choice_2 runs correctly with correct time pauses and verifies all states before displaying a certain block of prints.
+
+### branch_1
+
+Branch 1 can only be reached by selecting no to choice_2 and has the most available modifiers to the rest of the run. That means depending on what you chose and have chosen you could end up with multiple game overs and only 2 possible ways to make it through depending on those variables. When the code is ran the user will be presented with a description of the enviroment and given a total of 3 options. These are window, room and corridor. All input to this field is converted to lower case as expected. Again if any incorrect input is typed then an error message comes up as expected and loops back the input field.
+
+* If the user types window then a short text will display and redirect them to the choice_3 function. There are no modifers or checks involved in this option but it is exectued correctly with no issues.
+
+* If the user types room then the ghillie suit is succesfully equipped. However another check will be made here. If the user brought the bat then they will successfully be given the game over state. If they did not bring the bat then they are able to make it out of the room and to the choice_3 function with the dictionary updated to reflect the ghillie equip state. All these values update and are checked against correctly and with no issues.
+
+* If the user types corridor then again a simple text will appear to explain the choice and a game over state will correctly function with a play again straight after.
+
+All these possible inputs all function and exectue correctly.
+
+### choice_3
+
+Choice 3 will take into consideration every choice the user has made so far to determine if they have won or lost. The user will first be given a short text and input field giving them 3 more options. These options are stealth, attack or run. All input is correctly made lower case so the user does not have to worry about capital letters. Then multiple checks will be made depending on the selected choice.
+
+* If the user types stealth then mutliple item checks are made. If the user has the ghillie suit in possession then they make it to the final shop() function which serves as a win state. If the user does not have the ghillie then a check will be made for the baseball bat. If the user has the bat then they will be able to make it to the shop(), and if they do not posses the bat then they will reach a game over as expected. If the bat is used an attack made then the durability will also be decresed by 1 to reflect this. This means to reach these particular options certain choices had to be made from choice 1, choice 2 and the branch if applicable. This requires very specific inputs and all works as correctly making the checks.
+
+* If the user types run then a simple game over state is presented and the play again function is ran straight after this.
+
+* If the user types attack then similar checks to the stealth input. The ghillie is not checked for as it is not relevent to the checks being made. If the user has the bat it is impossible for them to make it here with the ghillie as well. Instead the code simply checks to make sure that the user has the bat. As it is possible to make it this far without the bat or the ghillie and make no attacks. If the user has the bat then they are able to proceed to the shop win state, however the durability of the bat is reduced by 2.
+
+All these inputs work and function as correctly and any incorrect inputs are provided an error and the input is ran again.
+
+### shop()
+
+The shop requires no input but will check against certain equipment to make sure that the correct text is displayed. If the user brought the baseball bat then a check will be made against its durability. The durability will have been modified on any instance where the user made an attack or defend against a zombie. The durability is correctly checked to see if it above 0 or equal to it. If it's more than 0 then an extra text will appear to say it has survived. If it is equal to 0 then the bat will have been destroyed and the text will reflect this. Then a check will be made against the ghillie suit equip state to provide another varient text before the win screen.
+
+All these checks function correctly and the play again is correctly called at the end.
 
 ## Technologies
 
@@ -121,6 +169,8 @@ App was Deployed to Heroku using the following steps.
 The code and the story for the game was created entirely by myself with learning from the Code Institute Python course material.
 
 ## Aknowledgements
+
+Thank you to my mentor Daisy who always has faith in my projects.
 
 Adding delay to code learnt from: https://realpython.com/python-sleep/
 
