@@ -6,6 +6,8 @@ Scavenge is a text adventure game. The player will be brought through a zombie s
 
 The game story is inspired by other zombie games that depend on the use of resources and weapons in order to survive. While younger players may not fit the target audience, older players may love the call back to orignal text games.
 
+Final deployed version of my game is available [here](https://scavenge-textgame.herokuapp.com)
+
 ## How to Play
 
 The game is mainly played via a simple Yes or No input from the user. More of the complexity to winning comes from the user's ability to use items and resources to reach the end. The decision weather or not to fight or retreat depending on their inventory.
@@ -163,6 +165,8 @@ App was Deployed to Heroku using the following steps.
 7. Scroll up and locate the Deploy tab where settings was found.
 8. Add Github as the deployement method and find the Git page for the project.
 9. Select the branch and press Deploy Branch
+
+Final deployed version is available [here](https://scavenge-textgame.herokuapp.com)
 
 ## Credits
 
