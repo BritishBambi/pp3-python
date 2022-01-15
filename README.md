@@ -42,7 +42,7 @@ The game will announce whenever the user hits a win or loss state. Both states a
 
 ### Play Again
 
-Whenever the user reaches an end condition the game will run the play_again function. This will present the user with a yes or no question as to whether or not they want to try again. If yes is typed the user is successfully brought back to the beginning by running the game_intro function. This loops the user back to the beginning of the game. We also make sure to include dictionary updates to make sure the play again does not interfere with the default values of the dictionary. Similarly, when the user types no, the game will display a short message and the program stops as expected. If any other input is detected then the program will tell the user an invalid input was detected and the question will be asked again.
+Whenever the user reaches an end condition the game will run the play_again function. This will present the user with a yes or no question as to whether or not they want to try again. If yes is typed the user is successfully brought back to the beginning by running the choice_1 function. This loops the user back to the beginning of the game. We also make sure to include dictionary updates to make sure the play again does not interfere with the default values of the dictionary. Similarly, when the user types no, the game will display a short message and the program stops as expected. If any other input is detected then the program will tell the user an invalid input was detected and the question will be asked again.
 
 ![Screenshot showing the play again function being called](screenshots/play-again.PNG "Play again feature")
 
@@ -74,7 +74,7 @@ All this function works as intended and there are no bugs to be found.
 
 The play again function is called whenever the game ends. This can either be a game over or a win state. When run, input is given to the user and they are asked to enter 1 or 2 to represent playing the game again or exiting the program.
 
-* If the user types 1(yes) then the game_start is called again, skipping out the initial intro and getting right to the input again.
+* If the user types 1(yes) then choice_1 is called again, skipping out the initial intro and getting right to the input again. This also skips asking the user if they are ready to play as they have already declared intrest in playing again. At the same time the ghillie dictionary is updated correctly.
 
 * If the user types 2(no) then the game has a quick goodbye message and the program ends.
 
@@ -138,21 +138,23 @@ All these checks function correctly and the play again is correctly called at th
 
 ## Technologies
 
-Python
+Python - Was used to code the text adventure. Printing Statements and using conditionals to run the correct code.
 
-Github
+* Python Time module - Was Used to add small pauses in between print statements so blocks of text would not appear at once.
 
-Gitpod
+* Colorama - Was used to change text colour of print statements in the terminal.
 
-Python Time module
+Git - Was used to version control and commit all changes to Github.
 
-LucidChart
+Github - Was used to detail construction of game and detail workings through README. All changes were pushed to the repo here.
 
-Colorama
+Gitpod - Was the IDE used to code and commit all the program to.
 
-Gyazo GIF Capture
+LucidChart - Was used to map out the code and test that all logic paths were working as intended.
 
-Heroku
+Gyazo GIF Capture - Was used to take screen captures of the terminal and also Gif mode to record a short intro for the README.
+
+Heroku - Was used as final deployement platform for the program to be accesed on.
 
 ## Deployment
 

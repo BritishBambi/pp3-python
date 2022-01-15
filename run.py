@@ -85,13 +85,13 @@ def choice_1():
         if equip_weapon == "yes":
             baseball_bat.update({"equipped": True})
             baseball_bat.update({"durability": 3})
-            print(f"You have taken your trusty {bat} with you!")
+            print(f"You have taken your trusty {bat} with you!\n")
             time.sleep(2)
             choice_2()
             break
         elif equip_weapon == "no":
             baseball_bat.update({"equipped": False})
-            print("You have decided to not bring a weapon..")
+            print("You have decided to not bring a weapon..\n")
             time.sleep(2)
             choice_2()
             break
@@ -127,7 +127,7 @@ def choice_2():
                 print(f"However the {bat} is looking weaker..")
                 time.sleep(2)
                 baseball_bat["durability"] -= 1
-                print("Defeating the zombie has cleared a path to the shop")
+                print("Defeating the zombie has cleared a path to the shop\n")
                 time.sleep(2)
                 choice_3()
                 break
@@ -207,9 +207,10 @@ def branch_1():
                 print(Style.RESET_ALL)
                 play_again()
             elif baseball_bat.get("equipped") is False:
+                time.sleep(2)
                 print("With no weapon to slow you down you run for it")
                 time.sleep(2)
-            print("You then escape using a fire exit through the room")
+            print("You then escape using a fire exit through the room\n")
             time.sleep(2)
             choice_3()
             break
@@ -226,7 +227,7 @@ def choice_3():
     reach the end of not. Depending on weather the user branched
     or not they will be able to only succeed on certain inputs.
     """
-    print("You move through the streets, being careful as you do.\n")
+    print("You move through the streets, being careful as you do.")
     time.sleep(2)
     print("You find the shop however, 2 zombies wonder outside")
     time.sleep(2)
@@ -240,6 +241,8 @@ def choice_3():
             time.sleep(2)
             if ghillie_suit.get("equipped") is True:
                 print(f"Using the {ghillie} you sneak by both zombies!")
+                time.sleep(2)
+                shop()
                 break
             elif ghillie_suit.get("equipped") is False:
                 print("You are able to sneak by one of the zombies.")
@@ -355,8 +358,9 @@ def play_again():
             print("Please type 1 or 2.")
         else:
             if p_again == 1:
+                ghillie_suit.update({"equipped": False})
                 time.sleep(1)
-                game_start()
+                choice_1()
                 break
             elif p_again == 2:
                 time.sleep(1)
