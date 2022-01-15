@@ -169,6 +169,7 @@ def branch_1():
     print("...A corridor with growling coming from it..")
     time.sleep(2)
     print("...and a living room with some cabinets")
+    time.sleep(2)
     while True:
         building = input("Which way will you go? window/room/corridor?\n")
         building = building.lower()
@@ -206,6 +207,7 @@ def branch_1():
                 print(Fore.RED + "GAME OVER")
                 print(Style.RESET_ALL)
                 play_again()
+                break
             elif baseball_bat.get("equipped") is False:
                 time.sleep(2)
                 print("With no weapon to slow you down you run for it")
@@ -250,6 +252,7 @@ def choice_3():
                 print("However, one of them spots you as you reach the door..")
                 time.sleep(2)
                 print("He attacks you!")
+                time.sleep(2)
                 if baseball_bat.get("equipped") is True:
                     print(f"Luckily, you use the {bat} to defend yourself")
                     time.sleep(2)
